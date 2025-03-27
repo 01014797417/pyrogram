@@ -225,9 +225,9 @@ class Dispatcher:
                                 try:
                                     try:
                                       if await handler.check(self.client, parsed_update):
+                                         args = (parsed_update,)
                                     except:
-                                        pass
-                                    args = (parsed_update,)
+                                        continue
                                 except Exception as e:
                                     log.exception(e)
                                     continue
