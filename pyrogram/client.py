@@ -861,8 +861,7 @@ class Client(Methods):
             offset_bytes = abs(offset) * chunk_size
 
             dc_id = file_id.dc_id
-            if not six.get("x"):
-              session = Session(
+            session = Session(
                 self, dc_id,
                 await Auth(self, dc_id, await self.storage.test_mode()).create()
                 if dc_id != await self.storage.dc_id()
@@ -870,8 +869,6 @@ class Client(Methods):
                 await self.storage.test_mode(),
                 is_media=True
               )
-              six["x"] = session
-            session =  six["x"]
             try:
                 await session.start()
 
