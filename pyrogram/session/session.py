@@ -349,7 +349,7 @@ class Session:
 
             if result is None:
                 log.warning('Eror in Send invoke',
-                            self.client.name, query_name)
+                            self.client.name, data)
                 raise TimeoutError("Request timed out")
 
             if isinstance(result, raw.types.RpcError):
