@@ -348,8 +348,6 @@ class Session:
             result = self.results.pop(msg_id).value
 
             if result is None:
-                log.warning('Eror in Send invoke',
-                            self.client.name, data)
                 raise TimeoutError("Request timed out")
 
             if isinstance(result, raw.types.RpcError):
